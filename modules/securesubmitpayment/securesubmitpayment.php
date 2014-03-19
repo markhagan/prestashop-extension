@@ -136,10 +136,10 @@ class SecureSubmitPayment extends PaymentModule
 			return;
 
 		$this->context->controller->addCSS($this->_path.'securesubmit.css');
-
-		return '<script type="text/javascript">var securesubmit_public_key = \''.addslashes(Configuration::get('HPS_MODE') ? Configuration::get('HPS_PUBLIC_KEY_LIVE') : Configuration::get('HPS_PUBLIC_KEY_TEST')).'\';</script>
-   		<script type="text/javascript" src="modules/securesubmitpayment/assets/js/secure.submit-1.0.2.js"></script>
-		<script type="text/javascript" src="modules/securesubmitpayment/assets/js/securesubmit.js"></script>';
+        $this->context->controller->addJS($this->_path.'assets'.DS.'js'.DS.'secure.submit-1.0.2.js');
+        $this->context->controller->addJS($this->_path.'assets'.DS.'js'.DS.'securesubmit.js');
+        
+		return '<script type="text/javascript">var securesubmit_public_key = \''.addslashes(Configuration::get('HPS_MODE') ? Configuration::get('HPS_PUBLIC_KEY_LIVE') : Configuration::get('HPS_PUBLIC_KEY_TEST')).'\';</script>;
 	}
 
 	/**
